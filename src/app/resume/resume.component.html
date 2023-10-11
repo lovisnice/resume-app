@@ -1,0 +1,19 @@
+<h1>{{ resume.firstName | uppercase }} {{ resume.lastName | lowercase }}</h1>
+<p>Email: {{ resume.email | lowercase }}</p>
+<p>Phone: {{ resume.phone }}</p>
+<p>Date of Birth: {{ resume.dateOfBirth | date:'MMMM d, y' }}</p>
+<p>Salary: {{ resume.salary | currency:'USD':true:'1.2-2' }}</p>
+<p>Experience Years: {{ resume.experienceYears | number:'1.1-1' }}</p>
+
+<h2>Skills</h2>
+<ul>
+  <li *ngFor="let skill of resume.skills">{{ skill }}</li>
+</ul>
+
+<h2>Education</h2>
+<ul>
+  <li *ngFor="let edu of resume.education">
+    {{ edu.institution }} - {{ edu.degree }} (Graduated: {{ edu.graduationYear }})
+  </li>
+</ul>
+
