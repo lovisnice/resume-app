@@ -1,0 +1,22 @@
+<button (click)="openCreateTaskForm()">Створити завдання</button>
+<div *ngIf="createTaskFormVisible">
+    <form (ngSubmit)="onCreateTask()" >
+        <input formControlName="title" placeholder="Title">
+        <input formControlName="status" placeholder="Status">
+        <input formControlName="priority" placeholder="Priority">
+        <input formControlName="deadline" placeholder="Deadline">
+        <input type="checkbox" formControlName="completed">
+        <button type="submit">Створити завдання</button>
+      </form>
+      
+  </div>
+
+<div class="task-cards">
+    <li *ngFor="let task of tasks">
+        <app-tasks [task]="task" (deleteTask)="onDeleteTask($event)"></app-tasks>
+    </li>
+</div>
+
+<button (click)="sortTasksByDeadline()">Сортувати за дедлайном</button>
+<!-- <input type="text" placeholder="Пошук за іменем" [(ngModel)]="searchName" (input)="searchTasksByName(searchName)"> -->
+  

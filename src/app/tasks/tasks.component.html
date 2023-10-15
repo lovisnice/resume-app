@@ -1,0 +1,10 @@
+<div class="task-card">
+    <p>Title: {{ task?.title }}</p>
+    <p>Status: {{ task?.status }}</p>
+    <p>Priority: {{ task?.priority }}</p>
+    <p style="color: red;">Deadline: {{ task?.deadline }}</p>
+
+    <input type="checkbox" (change)="onTaskCompletionChange()">
+    <button (click)="onDeleteTask()">Видалити</button>
+</div>
+  

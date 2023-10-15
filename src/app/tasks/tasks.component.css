@@ -1,0 +1,10 @@
+.task-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 200px; /* Розмір карти, який може бути змінений */
+  }
+  
