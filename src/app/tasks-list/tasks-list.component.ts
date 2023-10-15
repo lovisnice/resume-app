@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TasksListComponent {
   tasks:ITask[] = mockTasks;
+  findTitle:string = "";
 
   onDeleteTask(task: ITask) {
     // Додайте код для видалення завдання із списку
@@ -18,7 +19,13 @@ export class TasksListComponent {
       this.tasks.splice(index, 1);
     }
   }
-
+  onTaskCompletionChange(task:ITask,completed:boolean) {
+    const index = this.tasks.indexOf(task);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+  
   sortTasksByDeadline() {
     this.tasks.sort((a, b) => {
       const deadlineA = new Date(a.deadline).getTime();
@@ -26,9 +33,20 @@ export class TasksListComponent {
       return deadlineA - deadlineB;
     });
   }
-  searchTasksByName(name: string) {
-    this.tasks = this.tasks.filter(task => task.title.toLowerCase().includes(name.toLowerCase()));
+
+  
+
+  searchTasksByName(searchText: string) {
+    if (searchText) {
+      // Використовуємо метод фільтрації для пошуку за іменем
+      this.tasks = mockTasks;
+      this.tasks = this.tasks.filter(task => task.title.toLowerCase().includes(searchText.toLowerCase()));
+    } else {
+      // Якщо поле вводу пусте, виводимо усі завдання
+      this.tasks = mockTasks;
+    }
   }
+  
 
   
   

@@ -8,3 +8,8 @@
     width: 200px; /* Розмір карти, який може бути змінений */
   }
   
+  .completed-task {
+    text-decoration: line-through;
+    background-color: green;
+  }
+  

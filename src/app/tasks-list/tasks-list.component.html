@@ -1,6 +1,6 @@
 <button (click)="openCreateTaskForm()">Створити завдання</button>
 <div *ngIf="createTaskFormVisible">
-    <form (ngSubmit)="onCreateTask()" >
+    <form (ngSubmit)="onCreateTask()" [formGroup]="taskForm">
         <input formControlName="title" placeholder="Title">
         <input formControlName="status" placeholder="Status">
         <input formControlName="priority" placeholder="Priority">
@@ -18,5 +18,6 @@
 </div>
 
 <button (click)="sortTasksByDeadline()">Сортувати за дедлайном</button>
-<!-- <input type="text" placeholder="Пошук за іменем" [(ngModel)]="searchName" (input)="searchTasksByName(searchName)"> -->
+<input type="text" placeholder="Пошук за іменем" [(ngModel)] = "findTitle" (input)="searchTasksByName(findTitle)">
+
   
